@@ -5,7 +5,7 @@ using Mapster;
 
 namespace Application.Services.Product.Command.AddProduct;
 
-public class AddProductCommandHandler : ICommandHandler<AddProductCommandRequest, AddProductCommandResponse>
+public sealed class AddProductCommandHandler : ICommandHandler<AddProductCommandRequest, AddProductCommandResponse>
 {
     private readonly IProductRepository _productRepository;
 
