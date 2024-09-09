@@ -31,6 +31,23 @@ public static class ServiceCollectionConfigurationHandler
             .AsImplementedInterfaces()
             .WithTransientLifetime());
 
+        services.Scan(selector => selector
+            .FromAssemblies(assemblys)
+            .AddClasses(filter => filter.AssignableTo<IScopeLifetime>())
+            .AsImplementedInterfaces()
+            .WithScopedLifetime());
+
+        services.Scan(selector => selector
+            .FromAssemblies(assemblys)
+            .AddClasses(filter => filter.AssignableTo<ISingletonLifetime>())
+            .AsImplementedInterfaces()
+            .WithSingletonLifetime());
+
+        services.Scan(selector => selector
+            .FromAssemblies(assemblys)
+            .AddClasses(filter => filter.AssignableTo<ITransientLifetime>())
+            .AsImplementedInterfaces()
+            .WithTransientLifetime());
 
         return services;
     }
