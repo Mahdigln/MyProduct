@@ -1,4 +1,5 @@
 using Application.Services.Product.Command.AddProduct;
+using Application.Services.Product.Command.UpdateProduct;
 using Mapster;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -21,14 +22,16 @@ public sealed class ProductController : BaseController
         return NoContent();
     }
 
-    //[HttpPost("Login")]
-    //public async Task<IActionResult> UserLogin(LoginUserModel model, CancellationToken cancellationToken)
-    //{
-    //    var command = model.Adapt<LoginUserQueryRequest>();
-    //    var result = await Mediator.Send(command, cancellationToken);
-    //    if (result.IsError)
-    //        return BadRequest(result.Errors);
+    [HttpPut("UpdateProduct/{productId:int}")]
+    public async Task<IActionResult> UpdateProduct(int productId, [FromForm] UpdateProductModel model, CancellationToken cancellationToken)
+    {
+        var command = model.Adapt<UpdateProductCommandRequest>();
+        command.ProductId = productId;
+        command.UserId = GetUserId();
+        var result = await Mediator.Send(command, cancellationToken);
+        if (result.IsError)
+            return BadRequest(result.Errors);
 
-    //    return Ok(result.Value);
-    //}
+        return NoContent();
+    }
 }
