@@ -15,4 +15,8 @@
     <Folder Include="IRepository\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BuildingBlocks\BuildingBlocks.csproj" />
+  </ItemGroup>
+
 </Project>
