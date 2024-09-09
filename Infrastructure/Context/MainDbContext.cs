@@ -24,6 +24,11 @@ public class MainDbContext : IdentityDbContext<User, Role, int>, IUnitOfWork
         _softDeleter();
         return base.SaveChanges();
     }
+    public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+    {
+        _softDeleter();
+        return base.SaveChangesAsync(cancellationToken);
+    }
 
     private void _softDeleter()
     {

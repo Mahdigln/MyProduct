@@ -3,7 +3,7 @@ using Domain.Entities.Identity;
 
 namespace Domain.Entities.Product;
 
-public class Product : BaseEntity
+public class Product : BaseEntity, ISoftDeleteEntity
 {
     public string Name { get; set; }
     public DateTime ProduceDate { get; set; }
@@ -12,4 +12,6 @@ public class Product : BaseEntity
     public bool IsAvailable { get; set; }
     public int UserId { get; set; }
     public virtual User User { get; set; }
+    public bool IsDeleted { get; set; }
+    public DateTime DeletedDateTime { get; set; }
 }

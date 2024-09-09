@@ -1,4 +1,5 @@
 using Application.Services.Product.Command.AddProduct;
+using Application.Services.Product.Command.DeleteProduct;
 using Application.Services.Product.Command.UpdateProduct;
 using Application.Services.Product.Query.GetProducts;
 using Mapster;
@@ -47,4 +48,20 @@ public sealed class ProductController : BaseController
 
         return Ok(result.Value);
     }
+
+    [HttpDelete("DeleteProduct")]
+    public async Task<IActionResult> DeleteProduct(int productId, CancellationToken cancellationToken)
+    {
+        var command = new DeleteProductCommandRequest
+        {
+            UserId = GetUserId(),
+            ProductId = productId
+        };
+        var result = await Mediator.Send(command, cancellationToken);
+        if (result.IsError)
+            return BadRequest(result.Errors);
+
+        return NoContent();
+    }
+
 }
