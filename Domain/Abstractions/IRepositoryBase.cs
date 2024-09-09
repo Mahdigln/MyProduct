@@ -22,4 +22,7 @@ public interface IRepositoryBase<TEntity>
     IQueryable<TEntity> Get(List<Expression<Func<TEntity, object>>> includeProperties = null,
         CancellationToken cancellationToken = default);
 
+    Task<bool> AnyAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken = default);
+
+
 }

@@ -87,5 +87,9 @@ public abstract class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
 
         return queryable;
     }
+    public async Task<bool> AnyAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken = default)
+    {
+        return await TableNoTracking.AnyAsync(predicate, cancellationToken);
+    }
 }
 

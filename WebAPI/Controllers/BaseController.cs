@@ -1,6 +1,7 @@
+using BuildingBlocks.Extension.Identity;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
+using System.Globalization;
 
 namespace WebAPI.Controllers;
 
@@ -11,13 +12,7 @@ public abstract class BaseController : ControllerBase
     protected IMediator Mediator => _mediator ??= HttpContext.RequestServices.GetService<IMediator>();
     protected int GetUserId()
     {
-        var userIdString = User.FindFirstValue(ClaimTypes.NameIdentifier);
-
-        if (int.TryParse(userIdString, out int userId))
-        {
-            return userId;
-        }
-
-        throw new Exception("User ID is not valid.");
+        _ = int.TryParse(HttpContext.User.Identity?.GetUserId(), CultureInfo.InvariantCulture, out var userId);
+        return userId;
     }
 }

@@ -24,6 +24,7 @@
   <ItemGroup>
     <Folder Include="Services\Identity\Command\RegisterUser\" />
     <Folder Include="Services\Identity\Query\Login\" />
+    <Folder Include="Services\Product\Query\GetProducts\" />
   </ItemGroup>
 
 </Project>
