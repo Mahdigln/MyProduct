@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Context;
 
-public class MainDbContext : IdentityDbContext<User, Role, int>
+public class MainDbContext : IdentityDbContext<User, Role, int>, IUnitOfWork
 {
     public MainDbContext(DbContextOptions<MainDbContext> options) : base(options)
     {

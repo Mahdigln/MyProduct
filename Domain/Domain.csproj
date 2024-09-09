@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <Folder Include="Entities\Product\" />
+    <Folder Include="IRepository\" />
   </ItemGroup>
 
 </Project>
