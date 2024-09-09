@@ -1,5 +1,6 @@
 using Application.Services.Product.Command.AddProduct;
 using Application.Services.Product.Command.UpdateProduct;
+using Application.Services.Product.Query.GetProducts;
 using Mapster;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -33,5 +34,17 @@ public sealed class ProductController : BaseController
             return BadRequest(result.Errors);
 
         return NoContent();
+    }
+
+    [HttpGet("GetProducts")]
+    [AllowAnonymous]
+    public async Task<IActionResult> GetProducts([FromQuery] GetProductModel model, CancellationToken cancellationToken)
+    {
+        var command = model.Adapt<GetProductQueryRequest>();
+        var result = await Mediator.Send(command, cancellationToken);
+        if (result.IsError)
+            return BadRequest(result.Errors);
+
+        return Ok(result.Value);
     }
 }
