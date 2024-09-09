@@ -6,4 +6,6 @@ public class User : IdentityUser<int>, IEntity<int>
 {
     public string FirstName { get; set; }
     public string LastName { get; set; }
+
+    public ICollection<Product.Product> Products { get; set; }
 }
