@@ -5,17 +5,21 @@ VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingBlocks", "{9B815247-6CBF-41B2-B91F-E79D7AAC97EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks", "BuildingBlocks\BuildingBlocks.csproj", "{ABA14A41-D3A4-4C80-B8D8-F2DA96658F8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuildingBlocks", "BuildingBlocks\BuildingBlocks.csproj", "{ABA14A41-D3A4-4C80-B8D8-F2DA96658F8E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7934AEFA-FB5F-4570-AB69-10413C23431A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{8F71B629-4E2A-46C2-8248-DA9CC90698B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{8F71B629-4E2A-46C2-8248-DA9CC90698B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{D5911AE0-3D8F-486A-B2EB-58EF2B4C5049}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{D5911AE0-3D8F-486A-B2EB-58EF2B4C5049}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{9DF9EED1-A3D2-4378-BC90-3B44DC1E2C37}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{9DF9EED1-A3D2-4378-BC90-3B44DC1E2C37}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{AEC936F0-0EE6-48B5-A2E0-17805D40A5B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI", "WebAPI\WebAPI.csproj", "{AEC936F0-0EE6-48B5-A2E0-17805D40A5B3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{20B0E849-9E23-41DE-B12C-3F9E1FE5664D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyProduct.Test", "MyProduct.Test\MyProduct.Test.csproj", "{5D151EBC-A94C-4FA1-B66C-A493545AC65C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +47,10 @@ Global
 		{AEC936F0-0EE6-48B5-A2E0-17805D40A5B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AEC936F0-0EE6-48B5-A2E0-17805D40A5B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AEC936F0-0EE6-48B5-A2E0-17805D40A5B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D151EBC-A94C-4FA1-B66C-A493545AC65C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D151EBC-A94C-4FA1-B66C-A493545AC65C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D151EBC-A94C-4FA1-B66C-A493545AC65C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D151EBC-A94C-4FA1-B66C-A493545AC65C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +61,7 @@ Global
 		{D5911AE0-3D8F-486A-B2EB-58EF2B4C5049} = {7934AEFA-FB5F-4570-AB69-10413C23431A}
 		{9DF9EED1-A3D2-4378-BC90-3B44DC1E2C37} = {7934AEFA-FB5F-4570-AB69-10413C23431A}
 		{AEC936F0-0EE6-48B5-A2E0-17805D40A5B3} = {7934AEFA-FB5F-4570-AB69-10413C23431A}
+		{5D151EBC-A94C-4FA1-B66C-A493545AC65C} = {20B0E849-9E23-41DE-B12C-3F9E1FE5664D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {90E0E5E1-5755-4A1F-BD13-96B420981DE2}
