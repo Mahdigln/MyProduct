@@ -1,6 +1,8 @@
 using Application.Services.Identity.Command.RegisterUser;
 using Application.Services.Identity.Query.Login;
+using Application.Services.Identity.Query.UserProducts;
 using Mapster;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebAPI.Model.Identity;
 
@@ -31,4 +33,17 @@ public sealed class IdentityController : BaseController
 
         return Ok(result.Value);
     }
+
+    [HttpGet("UserProducts")]
+    [AllowAnonymous]
+    public async Task<IActionResult> UserProducts([FromQuery] GetUserProductModel model, CancellationToken cancellationToken)
+    {
+        var command = model.Adapt<UserProductsQueryRequest>();
+        var result = await Mediator.Send(command, cancellationToken);
+        if (result.IsError)
+            return BadRequest(result.Errors);
+
+        return Ok(result.Value);
+    }
+
 }
