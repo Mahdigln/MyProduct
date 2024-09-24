@@ -1,5 +1,6 @@
 ﻿using Domain.Entities.Identity;
 using Domain.IRepository;
+using Domain.Models;
 using Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,7 +16,7 @@ public sealed class UserRepository : RepositoryBase<User>, IUserRepository
     {
         var userProductsInfos = await Entities
             .AsNoTrackingWithIdentityResolution()
-            .OrderBy(c => c.UserName) // Add this line to order by UserName
+            //.OrderBy(c => c.Id)
             .Select(c => new UserProductsInfo
             {
                 UserId = c.Id,
