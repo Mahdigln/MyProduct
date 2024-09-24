@@ -1,23 +1,25 @@
-﻿using BuildingBlocks.DependencyInjection;
-using Domain.Abstractions;
-using Domain.Entities.Identity;
+﻿using BuildingBlocks.CQRS;
 
-namespace Domain.IRepository;
+namespace Application.Services.Identity.Query.UserProducts2;
 
-public interface IUserRepository : IRepositoryBase<User>, IScopeLifetime
+public sealed class UserProductsQueryRequest2 : IQuery<UserProductsQueryResponse2>
 {
-    Task<List<UserProductsInfo>> GetAllProducts(CancellationToken cancellation);
 }
 
-public sealed class UserProductsInfo
+public sealed class UserProductsQueryResponse2
+{
+    public List<UserDto2> User { get; set; }
+}
+
+public sealed class UserDto2
 {
     public int UserId { get; set; }
     public string UserName { get; set; }
-    public IReadOnlyList<UserProductDto> UserProduct { get; set; }
+    public List<UserProductDto2> UserProduct { get; set; }
 
 }
 
-public sealed class UserProductDto
+public sealed class UserProductDto2
 {
     public string Name { get; set; }
     public DateTime ProduceDate { get; set; }
